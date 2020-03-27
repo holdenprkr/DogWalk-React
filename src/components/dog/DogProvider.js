@@ -7,13 +7,13 @@ const DogProvider = (props) => {
     const [dogs, setDogs] = useState([])
 
     const getDogs = () => {
-        return fetch("api/dog")
+        return fetch("/api/dog")
             .then(res => res.json())
             .then(setDogs)
     }
 
     const addDog = Dog => {
-        return fetch("api/dog", {
+        return fetch("/api/dog", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -24,14 +24,14 @@ const DogProvider = (props) => {
     }
 
     const releaseDog = dogId => {
-        return fetch(`api/dog/${dogId}`, {
+        return fetch(`/api/dog/${dogId}`, {
             method: "DELETE"
         })
             .then(getDogs)
     }
 
     const updateDog = dog => {
-        return fetch(`api/dog/${dog.id}`, {
+        return fetch(`/api/dog/${dog.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

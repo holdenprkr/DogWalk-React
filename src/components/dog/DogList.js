@@ -8,6 +8,13 @@ export default (props) => {
 
     return (
         <div>
+            <button className="addDogButton" onClick={() => {
+            
+                props.history.push("/dogs/create")               
+            
+            }}>
+            Add A Dog!
+            </button>
             <div className="dogs">
             {
                 dogs.map(dog => {
